@@ -1,0 +1,31 @@
+Navigation
+{
+<ul class = "subjects">
+		<?php
+		while ($subject = mysqli_fetch_assoc($result)){
+			
+		?>
+		<li><a href = "manage_content.php?subject=<?php echo urlencode($subject["id"]);  ?> "><?php echo $subject["menu_name"]; ?> </a>
+		<ul class = "pages">
+		
+		<?php $query = "select * from pages where visible = 1 and subject_id = {$subject["id"]} order by position ASC"; 
+		$page_set = mysqli_query($connection,$query);?>
+		<?php
+		while ($pages = mysqli_fetch_assoc($page_set))
+		{
+			 
+		?>
+		<li><a href =  "manage_content.php?pages=<?php echo urldecode($pages["id"])  ?> "><?php echo $pages["menu_name"]; ?>  </a> </li>
+		<?php
+		} 
+		?>
+		
+		
+		</ul>
+		</li>
+		<?php
+		}
+		?>
+		<?php mysqli_free_result($page_set);?>
+		</ul>
+}
