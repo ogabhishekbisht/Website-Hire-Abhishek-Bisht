@@ -58,6 +58,7 @@ if(!$current_subject){
 }
 
 ?>
+<?php $layout_context = "admin";?>
 
 <?php include("../includes/layout/header.php"); ?>
 <TITLE>
@@ -141,6 +142,7 @@ if(!$current_subject){
 	if($current_subject["visible"] == 1){echo "checked" ;}?>/> Yes
 	</p>
 	<input type = "submit" name = "submit" value = "Edit Subject" />
+	<a href = "delete_subject.php?subject=<?php echo $current_subject["id"]?>" onclick = "return confirm ('ARE YOU SURE?');"><input type = "button"  value = "Delete"></a>
 	
 	
 
@@ -148,8 +150,11 @@ if(!$current_subject){
 	<br/>
 	<br/>
 	<br/>
+	<br/>
+	<br/>
+	<br/>	
 		<a href = "manage_content.php">	<input type = "button"  value = "Cancel"> </a>
-	
+			
 	</div>
 	</div>
 <?php

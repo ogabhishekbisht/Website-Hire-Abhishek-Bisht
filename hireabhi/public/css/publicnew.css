@@ -39,6 +39,15 @@ body
 	background: #EEE489;
 }
 
+.error{
+	color: #8D0D19; border: 2px solid #8D0D19;
+	margin: 1em 0;
+	padding: 1em;
+}
+.error ul{
+	padding-left: 2em;
+}
+
 #footer{
 	clear : both;
 	height: 2em;

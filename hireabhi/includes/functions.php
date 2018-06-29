@@ -20,6 +20,30 @@
 	 }
  }
  
+ //function find_admin_by_id($admin_id) {
+//	 
+	// global $connection;
+	// $safe_admin_id = mysqli_real_escape_string($connection,$admin_id);
+	 //$query = "Select * from admins where id = {$safe_admin_id} ;"
+	 //$admin_set = mysqli_query($connection,$query);
+	// confirm_query($admin_set);
+	 //if($admin = mysqli_fetch_assoc($admin_set)){
+	//	 return $admin;
+	 //}
+	 //else {
+	//	 return null;
+	 //}
+	 
+// }
+ 
+// function find_all_admins() {
+//	 global $connection;
+//	 $query = "select * from admins order by username ASC";
+//	 $admin_set = mysqli_query($connection,$query);
+//	 confirm_query($admin_set);
+//	 return $admin_set;
+ //}
+ 
  function form_errors($errors = array()){
 	$output = "";
 	if(!empty($errors)){
@@ -36,19 +60,27 @@
 	return $output;
 }
  
- function find_all_subjects()
+ function find_all_subjects($public = true)
  {
 	 global $connection;
-	$query = "select * from subjects where visible = 1 order by position ASC";
+	$query = "select * from subjects";
+	if(!$public) {
+	$query .= " where visible = 1 "; }
+	$query .= " order by position ASC";
 	$result = mysqli_query($connection,$query);
 	confirm_query($result);
 	return $result;
  }
  
- function find_pages_for_subject($subject_id)
+ function find_pages_for_subject($subject_id, $public = true)
  {
 	 global $connection;
-	$query = "select * from pages where visible = 1 and subject_id = {$subject_id} order by position ASC"; 
+	$query = "select * from pages ";
+	$query .= " where subject_id = {$subject_id} ";
+	if(!$public){
+		$query .=" and visible = 1 ";
+	}
+	$query .= " order by position ASC"; 
 	$page_set = mysqli_query($connection,$query);
 	return $page_set;
  }

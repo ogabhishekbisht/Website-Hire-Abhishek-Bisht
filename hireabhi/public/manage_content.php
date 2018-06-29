@@ -3,12 +3,16 @@
 <?php require_once("../includes/functions.php");?>
 <?php find_selected_pages();?>
 <?php  $result = find_all_subjects();?>
+<?php $layout_context = "admin";?>
 <?php include("../includes/layout/header.php"); ?>
 <TITLE>
 			MANAGE CONTENT
 </TITLE>
 	<div id = "main">
 		<div id = "navigation">
+		
+		<br/>
+		<a href = "admins.php">&laquo; Main Menu</a><br/>
 		
 		<ul class = "subjects">
 		<?php
@@ -22,7 +26,7 @@
 		}
 		echo " > " ?>
 		
-		<a href = "manage_content.php?subject=<?php echo urlencode($subject["id"]);  ?> "><?php echo $subject["menu_name"]; ?> </a>
+		<a href = "manage_content.php?subject=<?php echo urlencode($subject["id"]);  ?> "><?php echo htmlentities($subject["menu_name"]); ?> </a>
 		<ul class = "pages">
 	
 		<?php $page_set = find_pages_for_subject($subject["id"]);?>
@@ -66,8 +70,22 @@
 		//while ($pages_result = mysqli_fetch_assoc($selected_page_result)){
 		
 		//echo $pages_result["context"]	; 
-		echo $current_page["context"];
-	?>
+		?>
+		Content : <br/>
+		<div class = "view-content">
+		<?php echo $current_page["context"];?>
+		</div>
+	
+	<br/><br/>
+		<br/><br/>
+		
+		<a href = "edit_page.php?pages=<?php echo $current_page["id"] ;?>">Edit Page </a>
+		
+		
+		<br/><br/><br/><br/>Position : <?php echo $current_page["position"];?>
+		<br/>
+		Visible : <?php echo $current_page["visible"] == 1? 'Yes' : 'No';?>
+	 <br/> 
 	
 	<?php } elseif($selected_subject_id) { ?>
 		<h2>Manage Subject</h2>
@@ -78,13 +96,39 @@
 		
 		echo "This page contains information about my:- "; 
 		//echo $subject_result["menu_name"]	; 
-		echo $current_subject["menu_name"];
-		
-		?> <br/> 
+		echo htmlentities($current_subject["menu_name"]);?>
+		<br/>
+		Position : <?php echo $current_subject["position"];?>
+		<br/>
+		Visible : <?php echo $current_subject["visible"] == 1? 'Yes' : 'No';?>
+	 <br/> 
 		
 		<?php
 		echo "Please click on links further presented in the navigation bar" ; 
 	?>
+	<div style = "margin-top : 2em; border-top : 1px solid #000000;">
+	<h3>Pages in the subject :</h3>
+	<ul>
+	<?php 
+	$subject_pages = find_pages_for_subject($current_subject["id"]);
+	while($page = mysqli_fetch_assoc($subject_pages)){
+		echo "<li>";
+		$safe_page_id = urldecode($page["id"]);
+		echo "<a href = \" manage_content.php?pages={$safe_page_id}\">";
+		echo htmlentities($page["menu_name"]);
+		echo "</a>";
+		echo "</li>";
+		}
+	
+	?>
+	</ul>
+	</br></br></br>
+	+ <a href = "new_page.php?subject=<?php echo $current_subject["id"];?>"> Add a new page to the subject </a>
+	</div>
+	</br>
+	</br>
+	
+	</br>
 	</br>
 	</br>
 	<a href = "edit_subject.php?subject=<?php echo $current_subject["id"]?>"> <input type = "button" value = "EDIT SUBJECT"></a>

@@ -4,6 +4,7 @@
 <?php require_once ("../includes/validation_functions.php");?>
 <?php find_selected_pages();?>
 <?php  $result = find_all_subjects();?>
+<?php $layout_context = "admin";?>
 <?php include("../includes/layout/header.php"); ?>
 <TITLE>
 			MANAGE CONTENT

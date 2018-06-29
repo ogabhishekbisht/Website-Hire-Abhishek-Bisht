@@ -1,4 +1,4 @@
-<div id = "footer"> Copyright 2018 Domain Converters</div>
+<div id = "footer"> Copyright 2018 Abhishek Bisht</div>
 </BODY>
 </HTML>
 <?php 
