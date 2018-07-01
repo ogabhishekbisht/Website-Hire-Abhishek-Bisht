@@ -1,9 +1,11 @@
 <?php require_once("../includes/dbconnection.php");?>
 <?php require_once("../includes/session.php");?>
+
 <?php require_once("../includes/functions.php");?>
+<?php confirm_logged_in();?>
 
 <?php 
-$admin_set = find_all_admin();
+$admin_set = find_all_admins();
 ?>
 
 <?php $layout_context = "admin" ;?>
@@ -11,7 +13,7 @@ $admin_set = find_all_admin();
 
 <div id = "main">
 <div id = "navigation">
-$nbsp;
+&nbsp;
 </div>
 <div  id = "page">
 <?php echo message(); ?>
@@ -30,7 +32,8 @@ $nbsp;
 <?php }?>
 </table>
 <br/>
-<a href = "new_admin.php">Add new admin </a>
+<a href = "new_admins.php">Add new admin </a>
+<hr/>
 </div>
 </div>
 <?php include("../includes/layout/footer.php");?>

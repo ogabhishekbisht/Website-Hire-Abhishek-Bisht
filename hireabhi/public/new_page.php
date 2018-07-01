@@ -124,7 +124,7 @@ else{
 	<h2>Create Page</h2>
 	<form action = "new_page.php?subject=<?php echo $current_subject["id"] ;?>" method = "post">
 	<p> Menu Name :
-	<input type = "text" name = "menu_name" value = "" />
+	<input type = "text" name = "menu_name" value = "" /> </p>
 	<p> Position :
 	<select name = "position">
 	<?php

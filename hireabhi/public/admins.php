@@ -1,4 +1,7 @@
 <?php require_once("../includes/functions.php");?>
+<?php require_once("../includes/session.php");?>
+<?php confirm_logged_in();?>
+
 <?php $layout_context = "admin";?>
 <?php include("../includes/layout/header.php");?>
 <TITLE>
@@ -9,7 +12,7 @@
 	</div>
 	<div id = "page">
 	<h2> ADMIN MENU</h2>
-	<p> Welcome to the Admin area</p>
+	<p> Welcome to the Admin area, <?php echo htmlentities($_SESSION["username"]);?></p>
 	<ul>
 	<li><a href="manage_content.php"> Manage Website </a></li>
 	<li><a href="manage_admins"> Manage Admins </a></li>
