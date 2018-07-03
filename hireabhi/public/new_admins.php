@@ -1,7 +1,8 @@
 <?php require_once("../includes/dbconnection.php");?>
 <?php require_once("../includes/session.php");?>
-<?php confirm_logged_in();?>
+
 <?php require_once("../includes/functions.php");?>
+<?php confirm_logged_in();?>
 <?php require_once("../includes/validation_functions.php")?>
 
 

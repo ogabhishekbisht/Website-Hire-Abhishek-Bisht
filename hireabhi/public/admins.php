@@ -15,7 +15,7 @@
 	<p> Welcome to the Admin area, <?php echo htmlentities($_SESSION["username"]);?></p>
 	<ul>
 	<li><a href="manage_content.php"> Manage Website </a></li>
-	<li><a href="manage_admins"> Manage Admins </a></li>
+	<li><a href="manage_admins.php"> Manage Admins </a></li>
 	<li><a href="logout.php"> Logout </a></li>
 	</ul>
 	</div>

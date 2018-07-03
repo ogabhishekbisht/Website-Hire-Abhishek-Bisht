@@ -2,7 +2,7 @@
 <?php require_once("../includes/dbconnection.php");?>
 <?php require_once("../includes/functions.php");?>
 <?php require_once ("../includes/validation_functions.php");?>
-
+<?php confirm_logged_in();?>
 
 <?php
 $current_subject = find_subject_by_id($_GET["subject"]);
