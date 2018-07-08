@@ -63,8 +63,10 @@
 	echo message();
 	?>
 	<h2> Content Manage</h2>
+        
 	<?php if($selected_pages_id) { ?>
 	<h2>Manage Page</h2>
+<?php downloadresume();?>
 	<?php// $selected_page_query = "select context from pages where id = {$selected_pages_id}" ;?>
 	<?php// $selected_page_result = mysqli_query($connection,$selected_page_query); ?>
 	<?php

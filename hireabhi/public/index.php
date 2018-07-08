@@ -58,6 +58,7 @@ CONTENT
 	<div id = "page">
 	
 	<h2> Content</h2>
+	<?php downloadresume(); ?>
 	<?php if($selected_pages_id) { ?>
 	
 		<br/>
@@ -73,6 +74,7 @@ CONTENT
 	
 	<?php } elseif($selected_subject_id) { ?>
 		<h2> Subject</h2>
+		<? //php downloadresume(); ?>
 <?php //$selected_subject_query = "select menu_name from subjects where id = {$selected_subject_id}" ;?>
 	<?php// $selected_subject_result = mysqli_query($connection,$selected_subject_query); ?>
 	<?php

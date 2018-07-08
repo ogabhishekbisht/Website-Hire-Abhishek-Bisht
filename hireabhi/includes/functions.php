@@ -17,6 +17,13 @@ function confirm_logged_in(){
 
 }
 
+          function downloadresume() {
+$output = "<a href=\"Abhishek_Bisht_Resume.pdf\" download=\"newfilename\">Download my Resume</a> <br/><br/><br/>";
+echo  $output;
+
+}
+
+
 	function mysql_prep($string){
 		global $connection;
 		$escaped_string = mysqli_real_escape_string($connection,$string);
